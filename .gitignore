@@ -1,0 +1,34 @@
+# --- PLATFORMIO TYMCZASOWE I KOMPILACJA ---
+# Ignorujemy ukryty folder, gdzie PlatformIO trzyma skompilowane pliki pliki .o, .bin oraz pobrane biblioteki
+.pio/
+.pioenvs/
+.piolibdeps/
+.clang_complete
+.gcc-flags.json
+
+# --- VS CODE (USTAWIENIA LOKALNE) ---
+# Ignorujemy historię edytora, lokalną konfigurację i pamięć podręczną IntelliSense
+.vscode/.browse.VC.db
+.vscode/.cmake.api/
+.vscode/.gdb_history
+.vscode/ipch/
+
+# UWAGA: Nie ignorujemy całego folderu .vscode, ponieważ plik .vscode/extensions.json 
+# pozwala PlatformIO prawidłowo podpowiedzieć wtyczki po sklonowaniu repozytorium.
+
+# --- PLIKI TYMCZASOWE SYSTEMU I EDYTORÓW ---
+# Czyszczenie ze śmieci systemowych Windows/Mac oraz logów
+Thumbs.db
+desktop.ini
+*.log
+.DS_Store
+
+# --- PLIKI Z KODEM / KONFIGURACJĄ KTÓRE ZOSTAJĄ (ZOSTAWIONE DLA JASNOŚCI) ---
+# Git automatycznie doda poniższe elementy, ponieważ nie pasują do powyższych reguł:
+# - platformio.ini
+# - src/
+# - include/
+# - lib/
+# - test/
+
+.vscode/
