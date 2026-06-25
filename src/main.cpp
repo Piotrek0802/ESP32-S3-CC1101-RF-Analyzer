@@ -16,22 +16,21 @@ void setup()
   Serial.begin(115200);
   delay(2000);
 
-  // Uruchamiamy sprzęt przez naszą klasę
   Antena.begin();
   Antena.startListening();
 
   Serial.println("--- ROZPOCZĘTO SKANOWANIE ETERU (433.92 MHz) ---");
+
+  Antena.readRawData();
 }
 
 void loop()
 {
-  // Sprawdzamy, czy pin danych GDO0 (GPIO 5) wszedł w stan wysoki
   if (Antena.isDataAvailable())
   {
     Antena.readData();
     unsigned long startTime = micros();
 
-    // Mierzymy jak długo trwa ten impuls
     while (Antena.isDataAvailable())
     {
       delayMicroseconds(5);
@@ -39,7 +38,6 @@ void loop()
 
     unsigned long duration = micros() - startTime;
 
-    // Ignorujemy ultra-krótkie szumy tła (krótsze niż 100 mikrosekund)
     if (duration > 100)
     {
       Serial.print("Impuls: ");
