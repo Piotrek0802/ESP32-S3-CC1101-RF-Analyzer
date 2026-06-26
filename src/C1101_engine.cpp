@@ -79,16 +79,22 @@ void C1101_engine::readRawData()
     uint16_t i = 0;
     bool isFirst = true;
 
-    data.resize(256);
-    signaldBm.resize(256);
+    data.resize(vectorSize);
+    signaldBm.resize(vectorSize);
     for (size_t i = 0; i < data.size(); i++)
     {
         data.at(i).reserve(64);
     }
 
     //---MAIN----
-    while (true)//wychodzi po za wektor!!
+    while (true)
     {
+        if (i>=vectorSize)
+        {
+            Serial.println("Koniec miejsca na dane!");
+            return;//tutaj jakis ciag dalszy moze jakies zaczecie od zera?
+        }
+        
         if (micros() - time0 > 2 * maxSignalTime && isFirst == false)
         {
             i++;

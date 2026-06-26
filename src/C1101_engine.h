@@ -18,6 +18,7 @@ private:
     std::vector<int16_t> signaldBm;
 
     uint16_t minSignalTime = 200, maxSignalTime = 2000;
+    uint16_t vectorSize=128;
     bool _isDebugON = true;
 
 public:
