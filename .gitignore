@@ -39,3 +39,5 @@ pc_app/reads/*.txt
 
 # Keep the directory structure in Git
 !reads/.gitkeep
+
+_archive/
