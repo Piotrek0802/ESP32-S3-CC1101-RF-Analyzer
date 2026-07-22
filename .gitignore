@@ -32,3 +32,10 @@ desktop.ini
 # - test/
 
 .vscode/
+
+# Ignore all text read logs
+reads/*.txt
+pc_app/reads/*.txt
+
+# Keep the directory structure in Git
+!reads/.gitkeep
